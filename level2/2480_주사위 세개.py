@@ -3,14 +3,24 @@
 """
 a, b, c = map(int, input().split(' '))
 
-if a == b & b == c:
-    print(1e4 + a * 1e3)
+if a == b and b == c:
+    print(10000 + a * 1000)
 elif a == b:
-    print(1e3 + a * 100)
+    print(1000 + a * 100)
 elif b == c:
-    print(1e3 + b * 100)
+    print(1000 + b * 100)
 elif c == a:
-    print(1e3 + c * 100)
+    print(1000 + c * 100)
 else:
-    if a > b & a > c:
-        print()
+    if a > b and a > c:
+        print(a * 100)
+    elif b > c:
+        print(b * 100)
+    else:
+        print(c * 100)
+
+"""
+15째 줄에서 오류가 나는 것 같은 & 가 비교 연산자 < 보다 우선순위가 높은 연산자이기 때문에 a > 1 > c 가 되어 무조건 거짓이 된다.
+즉 3 2 1 을 넣으면 200원이 나올 것.. 그런 줄 알았는데
+3 > 2 & 3 > 1 -> 3 > 10(2) > 1 -> 3 > 2 > 1 즉 참.. 웬만하면 비트 연산을 할 때를 제외 하고는 and 를 쓰자!
+"""
