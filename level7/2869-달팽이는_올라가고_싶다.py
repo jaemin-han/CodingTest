@@ -8,29 +8,17 @@
 달팽이가 n날 밤을 지나고 남은 높이가 a 이하라면..인데 n날 밤이란?
 일단 v 를 (a - b) 로 나눈 나머지가 0이라면, 그 몫보다 하나 작은 값이거나
 아니면 그 몫
-"""
-# def main():
-#     a, b, v = map(int, input().split())
-#     if a >= v:
-#         print(1)
-#         return
-#     if v % (a - b) == 0:
-#         quotient = v // (a - b) - 1
-#     else:
-#         quotient = v // (a - b)
-#     if v - (quotient - 1) * (a - b) <= a:
-#         print(quotient)
-#     else:
-#         print(quotient + 1)
-    
+
+막상 풀고 나니, 명확히 보인다.
+""" 
 def main():
     a, b, v = map(int, input().split())
     if a >= v:
         print(1)
-    elif v - a <= a - b:
-        print(2)
     else:
-        print((v - a) // (a - b) + 1)
+        if (v - a) % (a - b) == 0:
+            print((v - a) // (a - b) + 1)
+        else:
+            print((v - a) // (a - b) + 2)
 
-while True:
-    main()
+main()
