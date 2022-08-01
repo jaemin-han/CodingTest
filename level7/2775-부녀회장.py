@@ -5,11 +5,10 @@ recursion 방법으로 풀었더니 시간 초과가 떳다.
 def resident(k, n):
     if k == 0:
         return n
-    sum = 0
-    for i in range(n + 1):
-        sum += resident(k - 1, i)
-    return sum
-
+    elif n == 1:
+        return 1
+    return resident(k, n - 1) + resident(k - 1, n)
+    
 import sys
 t = int(input())
 
